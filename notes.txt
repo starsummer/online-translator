@@ -1,0 +1,30 @@
+1,onchange
+  onchange 事件会在域的内容改变时发生。
+
+2,如何是读入的txt文本保持原来格式？
+	在文本两端+<pre>
+	之后不会自动换行了，怎么办？
+		把pre设置为以下样式
+		pre {
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		}就好了
+			word-wrap 属性允许长单词或 URL 地址换行到下一行。
+			word-wrap: normal|break-word;
+			  值				描述
+			normal		只在允许的断字点换行（浏览器保持默认处理）。
+			break-word	在长单词或 URL 地址内部进行换行。
+
+
+			white-space 属性设置如何处理元素内的空白。
+
+			值			描述
+			normal		默认。空白会被浏览器忽略。
+			pre			空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。
+			nowrap		文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。
+			pre-wrap	保留空白符序列，但是正常地进行换行。
+			pre-line	合并空白符序列，但是保留换行符。
+			inherit		规定应该从父元素继承 white-space 属性的值。
+
+		其实还是不太理解，txt中一整段都不会换行，它既不是长单词也不是URL，为什么设置这个样式后就会了呢？
+		实验了一下，主要white-space: pre-wrap;在起作用，原因可能是在txt文本中空白行和最长的段落一样长
