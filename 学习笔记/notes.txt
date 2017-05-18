@@ -28,3 +28,23 @@
 
 		其实还是不太理解，txt中一整段都不会换行，它既不是长单词也不是URL，为什么设置这个样式后就会了呢？
 		实验了一下，主要white-space: pre-wrap;在起作用，原因可能是在txt文本中空白行和最长的段落一样长
+
+3，如何获取选中文本？
+	利用getSelection()函数
+
+	js 获取选中文字
+
+/*获取选中的文字*/
+var _getSelectedText = function() {
+ if (window.getSelection) {
+  return window.getSelection().toString();
+ } else if (document.getSelection) {
+  return document.getSelection();
+ } else if (document.selection) {
+  return document.selection.createRange().text;
+ }else{
+  return "";
+ }
+}
+
+4，
