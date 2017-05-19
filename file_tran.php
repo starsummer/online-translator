@@ -5,17 +5,12 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 	<script type="text/javascript" src="js/tran.js"></script>
 	<title>文件读取</title>
-	<style type="text/css">
-		pre {
-			white-space: pre-wrap;
-			/*		word-wrap: break-word;*/
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/file_tran.css">
 </head>
 <body>
 	<div id="get_txt">
 		<input id="file" type="file" multiple="" onchange="read_files(this.files)">
-		<div id="file_text" style="min-height:70px;background-color:#eee;padding:5px;">
+		<div id="file_text">
 			
 				You can imagine how my curiosity was aroused by this halfconfidence about the "other plas." I made a great effort, therefore, to find out more on this subject.
 				"My little man, where do you e from? What is this ¡®where I live,¡® of which you speak? Where do you want to take your sheep?"
