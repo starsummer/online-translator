@@ -33,20 +33,22 @@ $(document).ready(function () {
 		var y = e.pageY - parentOffset.top;
 		txt = getText();
 		console.log(txt+" x:"+x+" y:"+y);
-//1.$.ajax带json数据的异步请求  
+		
+		//1.$.ajax带json数据的异步请求  
 		var aj = $.ajax( {    
     		url:'tran_return.php',// 跳转到 action    
     		data:JSON.stringify({    
-    			text:txt,
+    			"text":txt,
     		}),    
-    		type:'post',    
+    		type:"post",    
     		cache:false,    
-    		dataType:'json',    
-    		success:function(data) {    
-				alert(data);   
+//    		dataType: "json",    
+    		success:function(data) {   
+    			var obj=$.parseJSON(data); 
+				alert(obj);   
    			},    
             error:function(XMLHttpRequest, textStatus, errorThrown){
-                    alert("失败");
+                    alert("ajax请求失败");
                     console.log(XMLHttpRequest.status);//200客户端请求已成功
                     console.log(XMLHttpRequest.readyState);//4响应内容解析完成，可以在客户端调用了
                     console.log(textStatus);//parsererror
