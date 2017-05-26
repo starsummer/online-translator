@@ -1,0 +1,20 @@
+#tran{
+	background-color: #fff;
+	height: 600px;
+	text-align: center;
+	padding:20px;
+}
+
+#src_lang{
+	width: 400px;
+	height: 250px;
+	margin: 10px;
+	border: 2px solid #ccc;
+}
+#to_lang{
+	width: 400px;
+	height: 250px;
+	margin:10px;
+	border:2px solid #ccc;
+	background-color: #ddd;
+}
