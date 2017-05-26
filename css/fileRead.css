@@ -1,0 +1,46 @@
+	.example {
+     -webkit-box-sizing: content-box;
+     box-sizing: content-box; 
+	}
+
+body{
+    background:url(../images/1.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    margin:0;
+    padding:0
+}
+
+
+#content {
+    position:relative;
+    overflow-x:hidden;   
+    word-break:break-all;    
+}
+
+#content p {
+    text-indent:2em; 
+}
+
+#cPage {
+    width:100%;
+    text-align: right;
+}
+
+
+.example{
+    background:#fcefe8;
+    width:800px;
+    border:1px #fcefe8 solid;
+    margin:0px auto;
+    padding:15px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px
+}
+
+pre {
+white-space: pre-wrap;
+word-wrap: break-word;
+background:#fcefe8;
+border: none;
+}

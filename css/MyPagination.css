@@ -1,0 +1,58 @@
+body{
+ //   background:url(../img/bg.png);
+    margin:0;
+    padding:0
+}
+
+.example{
+    background:#fcefe8;
+    width:800px;
+    border:1px #fcefe8 solid;
+    margin:0px auto;
+    padding:15px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px
+}
+
+#content {
+    position:relative;
+    overflow-x:hidden;   
+    word-break:break-all;    
+}
+
+#content p {
+    text-indent:2em; 
+}
+
+#cPage {
+    width:100%;
+    text-align: right;
+}
+
+.pagination { 
+    position: absolute;
+    height: 80%;
+    width:100%;
+    top: 80px;
+    left:0;
+}
+
+#prev,#cent, #next {
+    width:30%;
+    height: 100%;
+    float: left;
+}
+
+/*#prev {
+    margin-left: 50px;
+    cursor: url("../img/cur1.cur"),auto;
+}
+
+#next {
+    float: right;
+    cursor: url("../img/cur2.cur"),auto;
+}*/
+
+.text-right{
+    text-align: right;
+}
