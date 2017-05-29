@@ -12,7 +12,14 @@ function Get_translate(){
 		success:function(data){
 			$("#explain").html('');
 			$("#explain").append("翻译：" + data.translation + "<br/>");
-			if(data.basic['explains'] != null){
+			// if(isEmptyObj(data.basic['explains']) ){
+			// 	$("#explain").append("释义：" + "<br/> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;");
+			// 	for(var i = 0;i < data.basic['explains'].length;i++){
+			// 		$("#explain").append(data.basic['explains'][i] + "<br/> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;");
+			// 	}
+			// }
+
+			if(typeof data.basic != 'undefined'){
 				$("#explain").append("释义：" + "<br/> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;");
 				for(var i = 0;i < data.basic['explains'].length;i++){
 					$("#explain").append(data.basic['explains'][i] + "<br/> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;");
@@ -20,4 +27,11 @@ function Get_translate(){
 			}
 		}
 	});
+}
+
+function isEmptyObj( obj ) {
+    for ( var name in obj ) {
+        return false;
+    }
+    return true;
 }

@@ -1,47 +1,7 @@
-//是否支持file API
-function isSupportFileApi() {
-	if(window.File && window.FileList && window.FileReader && window.Blob) {
-		return true;
-	}
-	else{
-		alert("您的浏览器不支持file API");
-	}
-}
-function read_files(fileArray){
-	for(var i in fileArray){
-		var file = fileArray[i]; //这个file对象有以下属性可供读取name、size、lastModifiedDate和type等。
-		var reader = new FileReader();
-		if(/text\/\w+/.test(file.type)) { //判断文本文件
-			reader.readAsText(file);//readAsText函数用于将文件读取为文本
-			reader.onload = function() { //成功读取完毕后触发onload事件
-//				document.getElementById('content').innerHTML="<pre>"+this.result+"</pre>";
-				$("#content").html("<pre>"+this.result+"</pre>")
-				//分页
-				$('#content').MyPagination({height: 1200, fadeSpeed: 400});
-			}
-			
-
-		}else if(/image\/\w+/.test(file.type)) { //判断图片文件
-			reader.onload = function() {
-				document.getElementById('content').innerHTML='<img src='+this.result+'>';
-			}
-			reader.readAsDataURL(file);//readAsDataUrl函数用于将文件读取为Data url
-		}
-	}
-}
-
-$(document).ready(function(){
-    //监听文件上传
-    $('#file').change(function(){
-    	read_files(this.files);
-    });
-});
-
-
 /*获取选中的文字*/
 $(document).ready(function () {
-	$("#content").mouseup(function (e) {
-		console.log("debug");
+	$("body").mouseup(function (e) {
+//		console.log("debug");
 		var $content;
 		var parentOffset = $(this).offset();
 		var x = e.pageX - parentOffset.left;
@@ -108,4 +68,3 @@ function getText(){
 		return "";
 	}
 }	
-

@@ -32,7 +32,7 @@
 	<div class="collapse navbar-collapse" id="example-navbar-collapse">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="fileRead.php">文本阅读</a></li>
-			<li class="active"><a href="#">网页浏览</a></li>
+			<li class="active"><a href="webPage.php">网页浏览</a></li>
 		</ul>
 	</div>
 	</div>

@@ -22,9 +22,11 @@ function Get_translate($content){
 	return $js_de;
 }
 
-// $content = 'hello world!';
+ // $content = 'hello';
 
-// $content = Get_translate($content);
+ // $content = Get_translate($content);
+
+ // print_r($content);
 
 // var_dump($content);
 

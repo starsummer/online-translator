@@ -4,17 +4,18 @@
 	<meta charset="utf-8">
 	<title>Learn By Doing</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <link rel="stylesheet" type="text/css" href="css/webPage.css">
 	<!-- <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> -->
     <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/ajax.min.js"></script>
+    <script src="js/webPage.js"></script>
     <!-- <script src="js/common.js" type="text/javascript"></script> -->
-    <script src="js/myPagination.js"></script>
-    <script src="js/fileRead.js"></script>
+
 <!-- 	<script src="js/bgstretcher.js"></script>
     <link href="css/bgstretcher.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" type="text/css" href="css/fileRead.css">
+
     <script type="text/javascript">
     // custom initialization
 
@@ -45,36 +46,6 @@
 </nav>
 <!-- 导航栏 end -->
 
-<div class="example">
-    <div id="get_txt" calss="">
-        <input id="file" class="btn btn-success" type="file" multiple="">
-        
-
-<!--          <div >
-            <select id="fontsize">
-                <option>选择字体大小</option>
-                <option value="14px">14px</option>
-                <option value="16px">16px</option>
-                <option value="18px">18px</option>
-            </select>
-            <select id="lineheight">
-                <option>选择行距大小</option>
-                <option value="4">小</option>
-                <option value="6">中</option>
-                <option value="8">大</option>
-            </select>
-        </div> -->
-        <div id="content"  calss="">
- 
-        </div>
-        <div id="cPage"> </div>
-        <div class="text-right">
-        	<button id="to-prev" class="btn btn-primary btn-sm">上一页</button>
-        	<button id="to-next" class="btn btn-primary btn-sm">下一页</button>
-        </div>
-    </div>
-</div>	
-
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -90,6 +61,28 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
+
+<!-- 输入地址栏 -->
+<div>
+    <form class="bs-example bs-example-form" role="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" id="url" class="form-control">
+                    <span class="input-group-btn">
+                        <button id="goWebPage"  class="btn btn-default" type="button">
+                            Go!
+                        </button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </form>
+</div>
+<div id="html">
+    
+</div>
+<!-- <iframe id="html"></iframe> -->
 
 </body>
 </html>
