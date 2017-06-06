@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Learn By Doing</title>
+	<title>在线翻译</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<!-- <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -16,28 +16,9 @@
 </head>
 <body>
 
-<!-- 导航栏 start -->
-<nav class="navbar navbar-inverse" role="navigation">
-	<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="index.php">在线翻译</a>
-		<button type="button" class="navbar-toggle" data-toggle="collapse"
-                data-target="#example-navbar-collapse">
-            <span class="sr-only">So nice</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-	</div>
-	<div class="collapse navbar-collapse" id="example-navbar-collapse">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="fileRead.php">文本阅读</a></li>
-			<li class="active"><a href="webPage.php">网页浏览</a></li>
-		</ul>
-	</div>
-	</div>
-</nav>
-<!-- 导航栏 end -->
+<?php 
+	require 'includes/header.inc.php';
+?>
 
 <div class="col-sm-12">
 

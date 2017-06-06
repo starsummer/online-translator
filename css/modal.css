@@ -1,0 +1,29 @@
+.replace{
+    padding-left: 300px;
+}
+
+#user_meaning_btn{
+    /*margin-left: 400px;*/
+    /*float: right;*/
+}
+
+#wordbook_box{
+    /*float: right;*/
+    display: inline-block;
+    /*border:2px solid #ccc;*/
+    width: 120px;
+    float: right;
+    padding-top:20px;
+}
+
+#crz{
+    margin-left: 20px;
+}
+
+#explain span{
+    color: gray;
+    /*text-align: right;*/
+    /*margin:10px 20px 20px 20px;*/
+    font-size: 12px;
+    font-style: italic;
+}

@@ -1,13 +1,20 @@
+<?php 
+    if(!isset($_COOKIE['username'])){
+        echo "<script type='text/javascript'>alert('请登录');location.href='login.php';</script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Learn By Doing</title>
+	<title>文本阅读</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<!-- <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> -->
     <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<!--     <script str="js/jquery.min.js"></script> -->
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- <script src="js/common.js" type="text/javascript"></script> -->
     <script src="js/myPagination.js"></script>
@@ -15,6 +22,7 @@
 <!-- 	<script src="js/bgstretcher.js"></script>
     <link href="css/bgstretcher.css" rel="stylesheet" /> -->
     <link rel="stylesheet" type="text/css" href="css/fileRead.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
     <script type="text/javascript">
     // custom initialization
 
@@ -22,28 +30,9 @@
 </head>
 <body>
 
-<!-- 导航栏 start -->
-<nav class="navbar navbar-inverse" role="navigation">
-	<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="index.php">在线翻译</a>
-		<button type="button" class="navbar-toggle" data-toggle="collapse"
-                data-target="#example-navbar-collapse">
-            <span class="sr-only">So nice</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-	</div>
-	<div class="collapse navbar-collapse" id="example-navbar-collapse">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="fileRead.php">文本阅读</a></li>
-			<li class="active"><a href="webPage.php">网页浏览</a></li>
-		</ul>
-	</div>
-	</div>
-</nav>
-<!-- 导航栏 end -->
+<?php 
+    require 'includes/header.inc.php';
+?>
 
 <div class="example">
     <div id="get_txt" calss="">
@@ -65,6 +54,17 @@
             </select>
         </div> -->
         <div id="content"  calss="">
+        <pre>
+  Once when I was six years old I saw a magnificent picture in a book, called True Stories from Nature, about the primeval forest. It was a picture of a boa constrictor in the act of swallowing an animal. Here is a copy of the drawing. 
+  In the book it said: "Boa constrictors swallow their prey whole, without chewing it. After that they are not able to move, and they sleep through the six months that they need for digestion." 
+
+  I pondered deeply, then, over the adventures of the jungle. And after some work with a colored pencil I succeeded in making my first drawing. My Drawing Number One. It looked like this: 
+
+  I showed my masterpiece to the grownups, and asked them whether the drawing frightened them.
+  But they answered: "Frighten? Why should any one be frightened by a hat?" 
+
+  My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant. But since the grownups were not able to understand it, I made another drawing: I drew the inside of the boa constrictor, so that the grownups could see it clearly. They always need to have things explained. My Drawing Number Two looked like this: 
+        </pre>
  
         </div>
         <div id="cPage"> </div>
@@ -75,21 +75,9 @@
     </div>
 </div>	
 
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">在线翻译</h4>
-            </div>
-            <div id="explain" class="modal-body">在这里添加一些文本</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
+<?php 
+    require 'includes/modal.inc.php';
+?>
 
 </body>
 </html>

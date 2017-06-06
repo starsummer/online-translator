@@ -150,5 +150,32 @@ scrollLeft() 方法返回或设置匹配元素的滚动条的水平位置。
 
 
 ##如何解决跨域问题？
+先用php把页面下载下来，然后jQuery的load方法把内容加载到固定区域
+
+##有些页面文件会再次引入jquery导致以前绑定jquery的插件失效
+网上说法是 $ 符号不知道调用哪个jq插件，但浏览器提示的错误是 model未定义
+
+解决办法是在引入第一个jquery后，用var $min=$,冲突的地方用$min代替$就好了
 
 
+##登陆查询数据库时出错
+**一直出现You have an error in your SQL syntax; check the manual thatcorresponds to your MySQL server version for the right syntax to use。。。**
+上网查了查，可能是关键字问题，把表名改了以后仍未解决，后来把sql语句两端的""改成了''就好了，不知道为什么
+
+知道了，原来不是这条语句，是下一条语句错了
+
+##为什么点击添加翻译会出发两次点击时间呢？
+在window.onload里面，var 时间戳=0,每次点击都会执行，难道，window.onload一直在刷新？
+
+是jquery click的问题，改成 document.getElementById('user_meaning_btn').onclick=function(e)就好了
+
+为什么jquery的click不对啊，难道给父元素也绑定了？
+
+
+##1/0返回问题，
+php中用return 1 代表true,return 0代表false为什么不对
+
+##json数据解析不正确
+打印出的都是一个个字符
+
+因为没有接受的是json字符串，没有转化为json对象
