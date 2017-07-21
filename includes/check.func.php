@@ -1,13 +1,5 @@
 <?php
-/**
-* TestGuest Version1.0
-* ================================================
-* Copy 2010-2012 yc60
-* Web: http://www.yc60.com
-* ================================================
-* Author: Lee
-* Date: 2010-8-15
-*/
+
 //防止恶意调用
 if (!defined('IN_TG')) {
 	exit('Access Defined!');
@@ -36,14 +28,7 @@ function _check_uniqid($_first_uniqid,$_end_uniqid) {
 	return _mysql_string($_first_uniqid);
 }
 
-/**
- * _check_username表示检测并过滤用户名
- * @access public 
- * @param string $_string 受污染的用户名
- * @param int $_min_num  最小位数
- * @param int $_max_num 最大位数
- * @return string  过滤后的用户名 
- */
+
 function _check_username($_string,$_min_num,$_max_num) {
 	//去掉两边的空格
 	$_string = trim($_string);
@@ -64,14 +49,6 @@ function _check_username($_string,$_min_num,$_max_num) {
 }
 
 
-/**
- * _check_password验证密码
- * @access public
- * @param string $_first_pass
- * @param string $_end_pass
- * @param int $_min_num
- * @return string $_first_pass 返回一个加密后的密码
- */
 
 function _check_password($_first_pass,$_end_pass,$_min_num) {
 	//判断密码
@@ -100,14 +77,7 @@ function _check_modify_password($_string,$_min_num) {
 	return sha1($_string);
 }
 	
-/**
- * _check_question 返回密码提示
- * @access public
- * @param string $_string
- * @param int $_min_num
- * @param int $_max_num
- * @return string $_string 返回密码提示
- */
+
 
 function _check_question($_string,$_min_num,$_max_num) {
 	$_string = trim($_string);
@@ -120,15 +90,7 @@ function _check_question($_string,$_min_num,$_max_num) {
 	return _mysql_string($_string);
 }
 
-/**
- *_check_answer()
- *@access public 
- * @param string $_ques
- * @param string $_answ
- * @param int $_min_num
- * @param int $_max_num
- * @return $_answ
- */
+
 function _check_answer($_ques,$_answ,$_min_num,$_max_num) {
 	$_answ = trim($_answ);
 	//长度小于4位或者大于20位
@@ -145,34 +107,19 @@ function _check_answer($_ques,$_answ,$_min_num,$_max_num) {
 	return _mysql_string(sha1($_answ));
 }
 
-/**
- * _check_sex  性别
- * @access public
- * @param string $_string
- * @return string 
- */
+
 
 function _check_sex($_string) {
 	return _mysql_string($_string);
 }
 
-/**
- * _check_face 头像
- * @access public
- * @param string $_string
- * @return string 
- */
+
 
 function _check_face($_string) {
 	return _mysql_string($_string);
 }
 
-/**
- * _check_email() 检查邮箱是否合法
- * @access public
- * @param string $_string 提交的邮箱地址
- * @return string $_string 验证后的邮箱
- */
+
 
 function _check_email($_string,$_min_num,$_max_num) {
 	//参考bnbbs@163.com
@@ -194,12 +141,7 @@ function _check_email($_string,$_min_num,$_max_num) {
 	return _mysql_string($_string);
 }
 
-/**
- * _check_qq ....
- * @access public
- * @param int $_string
- * @return int $_string  QQ号码
- */
+
 
 function _check_qq($_string) {
 	if (empty($_string)) {
@@ -214,12 +156,7 @@ function _check_qq($_string) {
 	return _mysql_string($_string);
 }
 
-/**
- * _check_url 网址验证
- * @access public
- * @param string $_string
- * @return string $_string 返回验证后的网址
- */
+
 
 function _check_url($_string,$_max_num) {
 	if (empty($_string) || ($_string == 'http://')) {

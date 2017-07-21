@@ -5,6 +5,7 @@ var tds;
 var username;
 var index;
 var url;
+var selected_meaning;
 
 //是否支持file API
 function isSupportFileApi() {
@@ -211,19 +212,30 @@ $(document).ready(function () {
             var radio = document.getElementsByName("other_meaning");  
             for (i=0; i<radio.length; i++) {  
                 if (radio[i].checked) {  
-                // alert(radio[i].value);  
+                // alert(radio[i].value);
+                selected_meaning= radio[i].value; 
                 //替换
                 replace($content,radio[i].value);
 
-                //把url word meaning存入数据库
+                // 把url word meaning存入数据库
 
                 $.ajax({
-                	url: url_server.php,
+                	url: 'url_server_store.php',
                 	type:'post',
                 	data:{
-                		'url':url;
-                		'word':$content;
-                		'meaning':meaning;
+                		'url':url,
+                		'word':$content,
+                		'meaning':selected_meaning,
+                	},
+                	dataType:'json',
+
+                	success:function(data){
+                		// if(typeof data.replaced_word !='undefined' && data.replaced_word.length>0){
+                		// 	console.log("233333333333");
+                		// 	for(var i=0,length=data.replaced_word;i<length;i++){
+                		// 		replace(data.replaced_word[i]['word'],data.replaced_word[i]['meaning']);
+                		// 	}
+                		// }
                 	}
                 })
                 }
@@ -241,6 +253,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
 
     //加入生词本
     document.getElementById("add_wordbook_btn").onclick=addToWordbook;
@@ -281,20 +294,51 @@ $min(document).ready(function(){
     //监听点击事件
     $min('#goWebPage').click(function(){
         url=$min('#url').val();
+        console.log(url);
         $min.ajax({
             type:'post',
             url:'getHtml.php',
             data:{
                 'url':url,
             },
-            dataType: 'html',
+            dataType: 'json',
             success:function(data){
             //  $min('body').append(data);
                 $min("#content").load("htmlContent.html",function(){
             //      alert("success");
+            		rep();
                 });
                 
             }
         })
     });
+    //第二次浏览进行替换
+    function rep(){
+    				console.log("debug");
+    	            $.ajax({
+                	url: 'url_server.php',
+                	type:'post',
+                	data:{
+                		'url':url,
+                		'word':$content,
+                		'meaning':selected_meaning,
+                	},
+                	dataType:'json',
+                	success:function(data){
+                		console.log("debuggggggggggggggggggggggggggggg");
+                		if(typeof data.replaced_word !='undefined' && data.replaced_word.length>0){
+                			alert(data.replaced_word);
+                			for(var i=0,length=data.replaced_word;i<length;i++){
+                				replace(data.replaced_word[i]['word'],data.replaced_word[i]['meaning']);
+                			}
+                		}
+                	},
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest.status);
+                        console.log(XMLHttpRequest.readyState);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    },
+                })
+    }
 });

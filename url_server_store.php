@@ -3,7 +3,7 @@
 //定义个常量，用来授权调用includes里面的文件
 define('IN_TG',true);
 //定义个常量，用来指定本页的内容
-define('SCRIPT','addmeaning');
+define('SCRIPT','url_word_store');
 
 // 接收前台 Ajax 传过来的值
 $word = $_POST['word'];
@@ -12,8 +12,8 @@ $url = $_POST['url'];
 $userid=$_COOKIE['userid'];
 // $username='admin';
 
-// $word = 'swimmer';
-// $meaning = '游泳的人';
+// $word = 'swim';
+// $meaning = '游泳';
 // $url = 'https://en.wikipedia.org/wiki/Main_Page';
 // $userid=$_COOKIE['userid'];
 
@@ -22,8 +22,8 @@ require dirname(__FILE__).'/includes/common.inc.php';
 
 function _is_repeated($sql){
 	$result=mysql_query($sql);
-
-	if(mysql_num_rows($result)>=0){
+	echo mysql_num_rows($result);
+	if(mysql_num_rows($result)>0){
 		return true;
 	}else{
 		return false;
@@ -32,23 +32,21 @@ function _is_repeated($sql){
 
 $data = array();
 $replaced_word=array();
-if($url!=NULL){
+if($word != NULL && $meaning != NULL && $url!=NULL){
 
-	//查询是否有数据
-	$_result=mysql_query("SELECT * FROM url_word WHERE userid='$userid' AND url='$url' ") or die(mysql_error());
-	//获取数据行数
-	$num=mysql_num_rows($_result);
-	if($num==0){
-		$data['is_browsed']=0;
-	}else{
-		$data['is_browsed']=1;
-		for($i=0;$i<$num;$i++){
-			$replaced_word[$i]=_fetch_array_list($_result);
+	//把userid,url,word，meaning加入url_word表中
+	if(_is_repeated(
+				"SELECT id FROM url_word WHERE userid='$userid' AND word='$word' AND url='$url' LIMIT 1"
+				 )
+	  )	{
+		$data['repeat']=1;
 		}
-		$data['replaced_word']=$replaced_word;
-	}	
+	else{
+		$data['repeat']=0;
+		mysql_query("INSERT INTO url_word (userid,url,word,meaning,add_time) VALUES 
+			                             ('$userid','$url','$word','$meaning',NOW() ) ") or die(mysql_error() );
+	}
 	echo json_encode($data);
 }
 
 ?>
-
